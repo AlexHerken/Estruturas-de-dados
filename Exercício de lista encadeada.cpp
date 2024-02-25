@@ -28,13 +28,13 @@ void ListarAlunos (Lista * Informacoes){
 		printf("Informe o CPF do aluno a ser consultado \n");
 			scanf("%i", &cpf);
 		 
-	    while(apoio != NULL){//Verifica se o apoio é diferente de NULL
+	    while(apoio != NULL){//Verifica se o apoio Ã© diferente de NULL
 	    	if(cpf == apoio->DadosAluno.cpf){ // se encontrar algum cpf igual ele mostra os dados do aluno
 	        printf("-Aluno: %s -Score: %.2f  -Posicao: %i \n", apoio->DadosAluno.nome, apoio->DadosAluno.score, cont);
 	        break; // e sai do while
 	    	}
 	    	cont = cont + 1; // aqui sera contado para mostrar a posicao do aluno
-	        apoio = apoio->Proximo;// receber o endereço de memoria do proximo valor da lista
+	        apoio = apoio->Proximo;// receber o endereÃ§o de memoria do proximo valor da lista
 	    }
     system("pause");
 }
@@ -51,7 +51,7 @@ void Ordena(Lista *Informacoes){
         Prox=Informacoes->primeiro->Proximo; // prox recebera o proximo de primeiro
         Ant = Informacoes->primeiro;
             if(Atual==NULL){ // se atual for null entao a lista esta vazia
-                printf("Não há itens suficientes para serem ordenados");
+                printf("NÃ£o hÃ¡ itens suficientes para serem ordenados");
             }
             else {
                 for(int x=0; Prox!=NULL; x++){ 
@@ -102,7 +102,7 @@ void LancarNotas (Lista *Informacoes){
 }
 
 void FuncaoPreencher(Aluno * info){
-    float score = 0.0; //declaraçao de variavel, garante que o score esta zerado ate receber as notas
+    float score = 0.0; //declaraÃ§ao de variavel, garante que o score esta zerado ate receber as notas
     printf("Informe o nome do aluno: \n");
     fflush(stdin);
         scanf("%[^\n]s", info->nome); 
@@ -121,8 +121,8 @@ void NovaInsercao(Aluno * info, Lista * Informacoes){
     }
     else{
         Apontador itemAnterior = Informacoes->primeiro; // itemnterior recebe o primeiro
-        while(itemAnterior != NULL){//Condicao para ver se o itemAnterior é diferente de NULL
-            if(itemAnterior->Proximo != NULL && itemAnterior->Proximo->DadosAluno.score< info->score){//Condicao para saber se o score de itemanterior é menor que o que esta vindo e o proximo é NULL
+        while(itemAnterior != NULL){//Condicao para ver se o itemAnterior Ã© diferente de NULL
+            if(itemAnterior->Proximo != NULL && itemAnterior->Proximo->DadosAluno.score< info->score){//Condicao para saber se o score de itemanterior Ã© menor que o que esta vindo e o proximo Ã© NULL
                 break;
             }
             itemAnterior = itemAnterior->Proximo; 
@@ -160,7 +160,7 @@ void SalaVazia(Lista * Informacoes){
 }
 
 int ConfirmaVazia(Lista * Informacoes){
-    return(Informacoes -> primeiro == NULL && Informacoes -> ultimo == NULL); // retorna se a lista realmente está vazia
+    return(Informacoes -> primeiro == NULL && Informacoes -> ultimo == NULL); // retorna se a lista realmente estÃ¡ vazia
 }
 
 void RemoverAluno(Lista * Informacoes){
@@ -212,13 +212,13 @@ void SalvarArquivo(Lista * Informacoes){
         while(aux != NULL){ // esta opcao ira percorrer a lista e salvar os dados dos Alunos
             int resu = fprintf(arq, "%i|%i|%f|%s\n", aux->DadosAluno.idade, aux->DadosAluno.cpf, aux->DadosAluno.score, aux->DadosAluno.nome);
             if(resu == EOF){
-                printf("Não foi possível ler o arquivo \n");
+                printf("NÃ£o foi possÃ­vel ler o arquivo \n");
             }
             aux = aux->Proximo;
         }
     }
     else{
-        printf("Arquivo não encontrado \n");
+        printf("Arquivo nÃ£o encontrado \n");
         system("pause");
     }
     fclose(arq);// fecha o arquivo para ser lido posteriormente
@@ -242,7 +242,7 @@ int LerArquivo(Lista * Informacoes, Aluno * info){
                 info->idade = idade;
                 info->cpf = cpf;
                 info->score = score;
-                CadastrarAluno(info ,Informacoes); // apos ler uma linha e info ser preenchido, a funçao cadastrarAluno sera chamada para que a lista seja ordenada durante o carregamento do arquivo
+                CadastrarAluno(info ,Informacoes); // apos ler uma linha e info ser preenchido, a funÃ§ao cadastrarAluno sera chamada para que a lista seja ordenada durante o carregamento do arquivo
     }
     fclose(arq);// fecha o arquivo
     }
@@ -287,7 +287,7 @@ LerArquivo(&Informacoes, &info);
                     printf("Encerrando... \n");
                 }
                 else{
-                    printf("Opção desconhecida \n");
+                    printf("OpÃ§Ã£o desconhecida \n");
                     system("pause");
                 }
                 break;
